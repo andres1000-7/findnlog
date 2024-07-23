@@ -1,0 +1,12 @@
+extends layout
+
+block content
+    h1= title
+    div#video-container
+        video#video(autoplay muted playsinline width="640" height="480")
+    div.button-container
+        button#start Start Detection
+        button#stop Stop Detection
+    script(src='https://cdn.jsdelivr.net/npm/@tensorflow/tfjs')
+    script(src='https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd')
+    script(src='/javascripts/detect.js')
