@@ -1,12 +1,26 @@
+//- Extends the layout template
 extends layout
 
+//- Defines the content block
 block content
+    //- Displays the title as an h1 element
     h1= title
+
+    //- Container for the video element
     div#video-container
+        //- Video element with autoplay, muted, playsinline attributes and specified dimensions
         video#video(autoplay muted playsinline width="640" height="480")
+
+    //- Container for the control buttons
     div.button-container
+        //- Button to start detection
         button#start Start Detection
+        //- Button to stop detection
         button#stop Stop Detection
-    script(src='https://cdn.jsdelivr.net/npm/@tensorflow/tfjs')
-    script(src='https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd')
+
+    //- Script to include TensorFlow.js library from node_modules
+    script(src='/node_modules/@tensorflow/tfjs/dist/tf.min.js')
+    //- Script to include COCO-SSD model from node_modules
+    script(src='/node_modules/@tensorflow-models/coco-ssd/dist/coco-ssd.js')
+    //- Script to include custom detection logic
     script(src='/javascripts/detect.js')

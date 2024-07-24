@@ -1,90 +1,89 @@
 #!/usr/bin/env node
 
-/**
- * Module dependencies.
- */
-
+// set to the app object that is exported from findnlog\app.js.
 var app = require('../app');
+// debugging utility that is used to print debug messages to the console.
 var debug = require('debug')('findnlog:server');
+// built-in module that provides an HTTP server and client.
 var http = require('http');
 
-/**
- * Get port from environment and store in Express.
- */
-
+// set to the value of the PORT environment variable, if it is set. If not, it defaults to 3000.
 var port = normalizePort(process.env.PORT || '3000');
+// set the port value to the app object. this is used to set the port that the server will listen on.
 app.set('port', port);
 
-/**
- * Create HTTP server.
- */
-
+// server is created using the http module, passing in the app object as the request listener.
 var server = http.createServer(app);
 
-/**
- * Listen on provided port, on all network interfaces.
- */
-
+// Listen on provided port, on all network interfaces. error and listening are event listeners for the server.
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
 
 /**
  * Normalize a port into a number, string, or false.
+ * @param {string} val - The port value to normalize.
+ * @returns {number|string|boolean} The normalized port number, named pipe, or false.
  */
-
 function normalizePort(val) {
-  var port = parseInt(val, 10);
+    var port = parseInt(val, 10);
 
-  if (isNaN(port)) {
-    // named pipe
-    return val;
-  }
+    if (isNaN(port)) {
+        // named pipe
+        return val;
+    }
 
-  if (port >= 0) {
-    // port number
-    return port;
-  }
+    if (port >= 0) {
+        // port number
+        return port;
+    }
 
-  return false;
+    return false;
 }
 
 /**
  * Event listener for HTTP server "error" event.
+ * @param {Object} error - The error object.
  */
-
 function onError(error) {
-  if (error.syscall !== 'listen') {
-    throw error;
-  }
+    // if the error is not a listen error, throw the error.
+    if (error.syscall !== 'listen') {
+        throw error;
+    }
 
-  var bind = typeof port === 'string'
-    ? 'Pipe ' + port
-    : 'Port ' + port;
+    // if the port is a string, it is prepended with 'Pipe '. If it is a number, it is prepended with 'Port '.
+    var bind = typeof port === 'string'
+        ? 'Pipe ' + port
+        : 'Port ' + port;
 
-  // handle specific listen errors with friendly messages
-  switch (error.code) {
-    case 'EACCES':
-      console.error(bind + ' requires elevated privileges');
-      process.exit(1);
-      break;
-    case 'EADDRINUSE':
-      console.error(bind + ' is already in use');
-      process.exit(1);
-      break;
-    default:
-      throw error;
-  }
+    // handle specific listen errors with friendly messages
+    switch (error.code) {
+        // if the error is an EACCES error, log the error and exit the process with a status code of 1.
+        case 'EACCES':
+            console.error(bind + ' requires elevated privileges');
+            process.exit(1);
+            break;
+        // if the error is an EADDRINUSE error, log the error and exit the process with a status code of 1.
+        case 'EADDRINUSE':
+            console.error(bind + ' is already in use');
+            process.exit(1);
+            break;
+        // if the error is not an EACCES or EADDRINUSE error, throw the error.
+        default:
+            throw error;
+    }
 }
 
 /**
  * Event listener for HTTP server "listening" event.
  */
-
 function onListening() {
-  var addr = server.address();
-  var bind = typeof addr === 'string'
-    ? 'pipe ' + addr
-    : 'port ' + addr.port;
-  debug('Listening on ' + bind);
+    // set the server address to the server object's address.
+    var addr = server.address();
+    // if the address is a string, it is prepended with 'pipe '. If it is a number, it is prepended with 'port '.
+    var bind = typeof addr === 'string'
+        ? 'pipe ' + addr
+        : 'port ' + addr.port;
+    // log that the server is listening on the bind value.
+    debug('Listening on ' + bind);
 }
