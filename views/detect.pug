@@ -18,9 +18,9 @@ block content
         //- Button to stop detection
         button#stop Stop Detection
 
-    //- Script to include TensorFlow.js library from node_modules
-    script(src='/node_modules/@tensorflow/tfjs/dist/tf.min.js')
-    //- Script to include COCO-SSD model from node_modules
-    script(src='/node_modules/@tensorflow-models/coco-ssd/dist/coco-ssd.js')
+    //- Script to include TensorFlow.js library from CDN
+    script(src='https://cdn.jsdelivr.net/npm/@tensorflow/tfjs')
+    //- Script to include COCO-SSD model from CDN
+    script(src='https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd')
     //- Script to include custom detection logic
     script(src='/javascripts/detect.js')

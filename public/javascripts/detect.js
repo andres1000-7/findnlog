@@ -7,38 +7,12 @@
  * - Event listeners for starting and stopping the object detection.
  */
 
-// Import TensorFlow.js and COCO-SSD
-const tf = require('@tensorflow/tfjs');
-const cocoSsd = require('@tensorflow-models/coco-ssd');
-
-/**
- * The video element that displays the webcam feed.
- * @type {HTMLElement}
- */
+// Get references to the DOM elements
 const video = document.getElementById('video');
-/**
- * The start button element that starts the object detection
- * @type {HTMLElement}
- */
 const startButton = document.getElementById('start');
-/**
- * The stop button element that stops the object detection
- * @type {HTMLElement}
- */
 const stopButton = document.getElementById('stop');
-/**
- * The canvas element that displays the detected objects.
- * @type {HTMLCanvasElement}
- */
 const canvas = document.createElement('canvas');
-/**
- * The 2D drawing context of the canvas element.
- * @type {CanvasRenderingContext2D}
- */
 const context = canvas.getContext('2d');
-/**
- * The COCO-SSD model for object detection.
- */
 let model;
 
 /**
