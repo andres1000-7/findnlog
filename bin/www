@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-// set to the app object that is exported from findnlog\app.js.
+// set to the app object that is exported from findnlog\app.js. This is the main application module.
 var app = require('../app');
 // debugging utility that is used to print debug messages to the console.
 var debug = require('debug')('findnlog:server');
