@@ -1,10 +1,7 @@
-//- Extends the layout template
 extends layout
 
-//- Defines the content block
 block content
-    //- Displays the title as an h1 element
-    h1= title
+    h1.text-center= title
 
     //- Container for the video element
     div#video-container
@@ -14,9 +11,9 @@ block content
     //- Container for the control buttons
     div.button-container
         //- Button to start detection
-        button#start Start Detection
+        button#start.btn Start Detection
         //- Button to stop detection
-        button#stop Stop Detection
+        button#stop.btn Stop Detection
 
     //- Script to include TensorFlow.js library from CDN
     script(src='https://cdn.jsdelivr.net/npm/@tensorflow/tfjs')
