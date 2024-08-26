@@ -1,5 +1,52 @@
 extends layout
 
 block content
-    h1= title
-    p Welcome to #{title}
+    .main-section
+        .info-section
+            h1 FindNLog
+            p FindNLog helps you keep track of personal items in work and educational environments using machine learning.
+            p Watch the video below to learn more about the project.
+            .tech-icons
+                img(src="/images/tensorflow.png" alt="TensorFlow.js")
+                img(src="/images/nodejs.png" alt="Node.js")
+                img(src="/images/express.png" alt="Express")
+            video(src="/videos/project-intro.mp4" controls class="project-video")
+        .form-section
+            h2.text-center Login
+            form(action="/login" method="post")
+                .form-group
+                    label(for="login-email") Email:
+                    input#login-email.form-control(type="email" name="email" required)
+                .form-group
+                    label(for="login-password") Password:
+                    input#login-password.form-control(type="password" name="password" required)
+                .form-group.text-center
+                    button.btn(type="submit") Login
+            h2.text-center Sign Up
+            form(action="/signup" method="post")
+                .form-group
+                    label(for="signup-firstName") First Name:
+                    input#signup-firstName.form-control(type="text" name="firstName" required)
+                .form-group
+                    label(for="signup-lastName") Last Name:
+                    input#signup-lastName.form-control(type="text" name="lastName" required)
+                .form-group
+                    label(for="signup-email") Email:
+                    input#signup-email.form-control(type="email" name="email" required)
+                .form-group
+                    label(for="signup-password") Password:
+                    input#signup-password.form-control(type="password" name="password" required)
+                .form-group.text-center
+                    button.btn(type="submit") Sign Up
+
+    .how-to-section
+        h2 How do I use it?
+        .step
+            img(src="/images/step1.png" alt="Step 1")
+            p Select from list of searchable objects
+        .step
+            img(src="/images/step2.png" alt="Step 2")
+            p Object detection model performs inference and logging saves object
+        .step
+            img(src="/images/step3.png" alt="Step 3")
+            p Search from your list of objects
