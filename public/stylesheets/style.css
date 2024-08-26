@@ -1,9 +1,3 @@
-body {
-  background-color: #121212;
-  color: #ffffff;
-  font-family: Arial, sans-serif;
-}
-
 #video-container {
   position: relative;
   display: flex;
@@ -15,7 +9,7 @@ video, canvas {
   position: absolute;
   top: 0;
   left: 0;
-  border: 2px solid #ffffff;
+  border: 2px solid #000000;
   border-radius: 10px;
 }
 
@@ -27,7 +21,53 @@ video, canvas {
   align-items: center;
 }
 
-button {
+body {
+  background-color: #f8f9fa;
+  color: #343a40;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  padding: 20px;
+}
+
+.main-section {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.info-section {
+  flex: 1;
+  padding: 20px;
+}
+
+.form-section {
+  flex: 1;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+}
+
+.btn {
   background-color: #1e88e5;
   color: #ffffff;
   border: none;
@@ -37,6 +77,45 @@ button {
   cursor: pointer;
 }
 
-button:hover {
-  background-color: #1565c0;
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.hidden {
+  display: none;
+}
+
+.how-to-section {
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.step img {
+  width: 100px;
+  height: 100px;
+  margin-right: 20px;
+}
+
+.tech-icons img {
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+}
+
+.project-video {
+  display: block;
+  margin: 20px auto 0; /* Adjust margin to ensure proper spacing */
+  width: 520px;
+  height: 280px;
+  border: 2px solid #ced4da;
+  border-radius: 10px;
+  position: relative; /* Ensure it does not overlap other elements */
 }
