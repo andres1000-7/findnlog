@@ -1,52 +1,103 @@
+//- Extends the main layout template
 extends layout
 
 block content
-    .main-section
-        .info-section
+    section.hero
+        .hero-content
+            //- Main heading for the hero section
             h1 FindNLog
-            p FindNLog helps you keep track of personal items in work and educational environments using machine learning.
-            p Watch the video below to learn more about the project.
+            //- Description of the application
+            p Detect and log objects with ease using our advanced machine learning technology.
+            //- Container for technology icons
             .tech-icons
-                img(src="/images/tensorflow.png" alt="TensorFlow.js")
-                img(src="/images/nodejs.png" alt="Node.js")
-                img(src="/images/express.png" alt="Express")
-            video(src="/videos/project-intro.mp4" controls class="project-video")
-        .form-section
-            h2.text-center Login
-            form(action="/login" method="post")
-                .form-group
-                    label(for="login-email") Email:
-                    input#login-email.form-control(type="email" name="email" required)
-                .form-group
-                    label(for="login-password") Password:
-                    input#login-password.form-control(type="password" name="password" required)
-                .form-group.text-center
-                    button.btn(type="submit") Login
-            h2.text-center Sign Up
-            form(action="/signup" method="post")
-                .form-group
-                    label(for="signup-firstName") First Name:
-                    input#signup-firstName.form-control(type="text" name="firstName" required)
-                .form-group
-                    label(for="signup-lastName") Last Name:
-                    input#signup-lastName.form-control(type="text" name="lastName" required)
-                .form-group
-                    label(for="signup-email") Email:
-                    input#signup-email.form-control(type="email" name="email" required)
-                .form-group
-                    label(for="signup-password") Password:
-                    input#signup-password.form-control(type="password" name="password" required)
-                .form-group.text-center
-                    button.btn(type="submit") Sign Up
+                //- Icon for TensorFlow.js
+                i.fab.fa-js(title="TensorFlow.js")
+                //- Icon for Node.js
+                i.fab.fa-node-js(title="Node.js")
+                //- Icon for Express
+                i.fab.fa-node(title="Express")
+            //- Container for the project demo video
+            .video-container
+                video(src="/videos/project-demo.mp4", controls)
+        .auth-forms
+            //- Login form
+            form.login-form
+                h2 Login
+                input(type="email", placeholder="Email", required)
+                input(type="password", placeholder="Password", required)
+                button(type="submit") Log In
+            //- Signup form
+            form.signup-form
+                h2 Sign Up
+                input(type="text", placeholder="First Name", required)
+                input(type="text", placeholder="Last Name", required)
+                input(type="email", placeholder="Email", required)
+                input(type="password", placeholder="Password", required)
+                button(type="submit") Sign Up
 
-    .how-to-section
+    section.how-to-use
+        //- Section heading for usage instructions
         h2 How do I use it?
-        .step
-            img(src="/images/step1.png" alt="Step 1")
-            p Select from list of searchable objects
-        .step
-            img(src="/images/step2.png" alt="Step 2")
-            p Object detection model performs inference and logging saves object
-        .step
-            img(src="/images/step3.png" alt="Step 3")
-            p Search from your list of objects
+        .steps
+            .step
+                //- Image for step 1
+                img(src="/images/step1.png", alt="Step 1")
+                //- Heading for step 1
+                h3 1. Select from list of searchable objects
+                //- Description for step 1
+                p Choose the objects you want to detect from our extensive list.
+            .step
+                //- Image for step 2
+                img(src="/images/step2.png", alt="Step 2")
+                //- Heading for step 2
+                h3 2. Object detection model performs inference and logging saves object
+                //- Description for step 2
+                p Our AI model detects objects in real-time and logs them for you.
+            .step
+                //- Image for step 3
+                img(src="/images/step3.png", alt="Step 3")
+                //- Heading for step 3
+                h3 3. Search from your list of objects
+                //- Description for step 3
+                p Easily find and manage your detected objects in your personal list.
+
+    section.features
+        //- Section heading for key features
+        h2 Key Features
+        .feature-grid
+            .feature
+                //- Icon for advanced object detection
+                i.fas.fa-search
+                //- Heading for advanced object detection
+                h3 Advanced Object Detection
+                //- Description for advanced object detection
+                p Detect multiple objects in images or video streams with high accuracy.
+            .feature
+                //- Icon for efficient logging
+                i.fas.fa-database
+                //- Heading for efficient logging
+                h3 Efficient Logging
+                //- Description for efficient logging
+                p Automatically save and organize detected objects for easy retrieval.
+            .feature
+                //- Icon for mobile friendly
+                i.fas.fa-mobile-alt
+                //- Heading for mobile friendly
+                h3 Mobile Friendly
+                //- Description for mobile friendly
+                p Use FindNLog on any device, anywhere, anytime.
+            .feature
+                //- Icon for real-time analytics
+                i.fas.fa-chart-line
+                //- Heading for real-time analytics
+                h3 Real-time Analytics
+                //- Description for real-time analytics
+                p Get insights on your detected objects with our built-in analytics.
+
+    section.cta
+        //- Section heading for call to action
+        h2 Ready to start detecting?
+        //- Description for call to action
+        p Join thousands of users who are already using FindNLog to simplify their object detection needs.
+        //- Button for call to action
+        button.cta-button Get Started for Free
