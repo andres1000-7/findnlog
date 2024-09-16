@@ -1,38 +1,30 @@
-//- Extends the main layout template
 extends layout
 
 block content
     section.hero
         .hero-content
-            //- Main heading for the hero section
             h1 FindNLog
-            //- Description of the application
             p Detect and log objects with ease using our advanced machine learning technology.
-            //- Container for technology icons
             .tech-icons
-                //- Icon for TensorFlow.js
                 i.fab.fa-js(title="TensorFlow.js")
-                //- Icon for Node.js
                 i.fab.fa-node-js(title="Node.js")
-                //- Icon for Express
                 i.fab.fa-node(title="Express")
-            //- Container for the project demo video
             .video-container
                 video(src="/videos/project-demo.mp4", controls)
         .auth-forms
-            //- Login form
-            form.login-form
+            if error
+                p.error= error
+            form.login-form(action="/login", method="POST")
                 h2 Login
-                input(type="email", placeholder="Email", required)
-                input(type="password", placeholder="Password", required)
+                input(type="email", name="email", placeholder="Email", required)
+                input(type="password", name="password", placeholder="Password", required)
                 button(type="submit") Log In
-            //- Signup form
-            form.signup-form
+            form.signup-form(action="/signup", method="POST")
                 h2 Sign Up
-                input(type="text", placeholder="First Name", required)
-                input(type="text", placeholder="Last Name", required)
-                input(type="email", placeholder="Email", required)
-                input(type="password", placeholder="Password", required)
+                input(type="text", name="firstName", placeholder="First Name", required)
+                input(type="text", name="lastName", placeholder="Last Name", required)
+                input(type="email", name="email", placeholder="Email", required)
+                input(type="password", name="password", placeholder="Password", required)
                 button(type="submit") Sign Up
 
     section.how-to-use
