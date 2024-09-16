@@ -1,23 +1,22 @@
 extends layout
 
 block content
-    h1.text-center= title
+    section.detection-section
+        .detection-content
+            h1 Object Detection
+            p Experience real-time object detection using our machine learning technology.
+            .tech-icons
+                i.fas.fa-camera
+                i.fas.fa-robot
+                i.fas.fa-code
+        .detection-video
+            #video-container
+                video#video(autoplay muted playsinline)
+                canvas#canvas
+            .button-container
+                button#start.btn.primary-btn Start Detection
+                button#stop.btn.secondary-btn Stop Detection
 
-    //- Container for the video element
-    div#video-container
-        //- Video element with autoplay, muted, playsinline attributes and specified dimensions
-        video#video(autoplay muted playsinline width="640" height="480")
-
-    //- Container for the control buttons
-    div.button-container
-        //- Button to start detection
-        button#start.btn Start Detection
-        //- Button to stop detection
-        button#stop.btn Stop Detection
-
-    //- Script to include TensorFlow.js library from CDN
     script(src='https://cdn.jsdelivr.net/npm/@tensorflow/tfjs')
-    //- Script to include COCO-SSD model from CDN
     script(src='https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd')
-    //- Script to include custom detection logic
     script(src='/javascripts/detect.js')
