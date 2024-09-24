@@ -7,13 +7,4 @@ block content
             p.error= error
         else
             p Hello, #{user.email}!
-
-            nav.user-nav
-                each menuTitle in [...new Set(pages.map(p => p.menuTitle))]
-                    h3= menuTitle
-                    ul
-                        each page in pages.filter(p => p.menuTitle === menuTitle)
-                            li
-                                a(href=page.pageURL)= page.pageTitle
-
             a(href="/logout") Logout
