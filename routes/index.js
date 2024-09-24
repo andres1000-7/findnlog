@@ -1,23 +1,24 @@
-// routes/index.js
 const express = require('express');
 const router = express.Router();
-const UserModel = require('../UserModel');
+const UserModel = require('../models/UserModel');
 
-router.get('/', function (req, res, next) {
-    res.render('index', {title: 'Login or Sign Up'});
+router.get('/', (req, res) => {
+    res.render('index', { title: 'Login or Sign Up' });
 });
 
 router.post('/login', async (req, res) => {
     try {
-        const isValid = await UserModel.validateUser(req.body.email, req.body.password);
-        if (isValid) {
-            req.session.user = {email: req.body.email};
+        const user = await UserModel.authenticate(req.body.email, req.body.password);
+        if (user) {
+            // console.log('User authenticated');
+            req.session.user = { email: req.body.email };
+            req.session.currentPage = '/login';
             res.redirect('/welcome');
         } else {
             res.render('index', {error: 'Invalid email or password'});
         }
     } catch (error) {
-        res.render('index', {error: 'Error validating user'});
+        res.render('index', { error: 'Error authenticating user' });
     }
 });
 
@@ -26,7 +27,7 @@ router.post('/signup', async (req, res) => {
         await UserModel.createUser(req.body.email, req.body.password, req.body.firstName, req.body.lastName);
         res.redirect('/');
     } catch (error) {
-        res.render('index', {error: 'Error creating user'});
+        res.render('index', { error: error.message || 'Error creating user' });
     }
 });
 
@@ -35,11 +36,23 @@ router.get('/welcome', async (req, res) => {
         res.redirect('/');
         return;
     }
-    try {
-        const userPages = await UserModel.getUserPages(req.session.user.email);
-        res.render('welcome', {user: req.session.user, pages: userPages});
-    } catch (error) {
-        res.render('welcome', {error: 'Error fetching user pages'});
+
+    const currentPage = '/welcome';
+    const email = req.session.user.email;
+    const previousPage = req.session.currentPage;
+
+    const isVerified = await UserModel.verifyUser(email, currentPage, previousPage);
+    if (isVerified) {
+        req.session.currentPage = currentPage;
+        // const accessiblePages = await UserModel.getAccessiblePages(email);
+        res.render('welcome', { user: req.session.user });
+    } else {
+        req.session.destroy(err => {
+            if (err) {
+                console.error('Error destroying session:', err);
+            }
+            res.redirect('/');
+        });
     }
 });
 
