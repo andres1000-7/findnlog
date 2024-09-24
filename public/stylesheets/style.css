@@ -41,6 +41,10 @@ nav {
   color: white;
 }
 
+nav h3 {
+  color: var(--background-color);
+}
+
 nav ul {
   display: flex;
   list-style-type: none;
@@ -208,38 +212,6 @@ nav ul li a:hover {
   margin-bottom: 1rem;
 }
 
-/* CTA Section */
-.cta {
-  padding: 4rem 2rem;
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-  color: white;
-  text-align: center;
-}
-
-.cta h2 {
-  margin-bottom: 1rem;
-}
-
-.cta p {
-  margin-bottom: 2rem;
-}
-
-.cta-button {
-  background-color: white;
-  color: var(--primary-color);
-  border: none;
-  padding: 1rem 2rem;
-  font-size: 1.2rem;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.cta-button:hover {
-  background-color: var(--text-color);
-  color: white;
-}
-
 /* Footer */
 footer {
   background-color: var(--text-color);
@@ -375,34 +347,6 @@ footer {
 .welcome-section {
   padding: 2rem;
   background-color: var(--background-color);
-}
-
-.user-nav {
-  margin-top: 2rem;
-}
-
-.user-nav h3 {
-  color: var(--primary-color);
-  margin-bottom: 1rem;
-}
-
-.user-nav ul {
-  list-style-type: none;
-  padding-left: 1rem;
-}
-
-.user-nav li {
-  margin-bottom: 0.5rem;
-}
-
-.user-nav a {
-  color: var(--text-color);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.user-nav a:hover {
-  color: var(--primary-color);
 }
 
 .error {

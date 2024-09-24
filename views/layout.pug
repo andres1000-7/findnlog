@@ -1,33 +1,24 @@
-//- This is the main layout template for the FindNLog application
 doctype html
 html(lang="en")
     head
-        //- Meta tags for character set and viewport settings
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
-
-        //- Title of the web page
         title FindNLog - Object Detection and Logging
-
-        //- Link to the main stylesheet
         link(rel="stylesheet", href="/stylesheets/style.css")
-
-        //- Link to Font Awesome for icons
         link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css")
     body
-        header
-            nav
-                //- Logo section
-                .logo FindNLog
-
-                //- Navigation menu
-                ul
-                    li: a(href="#") Home
-                    li: a(href="#") About
-                    li: a(href="#") Contact
+        if user
+            header
+                nav
+                    .logo FindNLog
+                    nav
+                        each menuTitle in [...new Set(pages.map(p => p.title))]
+                            h3= menuTitle
+                            ul
+                                each page in pages.filter(p => p.title === menuTitle)
+                                    li
+                                        a(href=page.pageURL)= page.pageTitle
         main
-            //- Placeholder for the main content of the page
             block content
         footer
-            //- Footer section with copyright information
             p &copy; 2024 FindNLog. All rights reserved.
