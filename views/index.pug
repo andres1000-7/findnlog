@@ -10,7 +10,7 @@ block content
                 i.fab.fa-node-js(title="Node.js")
                 i.fab.fa-node(title="Express")
             .video-container
-                video(src="/videos/project-demo.mp4", controls)
+                video(src="/videos/object-detection-demo.mp4", controls)
         .auth-forms
             if error
                 p.error= error
@@ -28,60 +28,37 @@ block content
                 button(type="submit") Sign Up
 
     section.how-to-use
-        //- Section heading for usage instructions
         h2 How do I use it?
         .steps
             .step
-                //- Image for step 1
-                img(src="/images/step1.png", alt="Step 1")
-                //- Heading for step 1
+                i.fas.fa-list-alt
                 h3 1. Select from list of searchable objects
-                //- Description for step 1
                 p Choose the objects you want to detect from our extensive list.
             .step
-                //- Image for step 2
-                img(src="/images/step2.png", alt="Step 2")
-                //- Heading for step 2
-                h3 2. Object detection model performs inference and logging saves object
-                //- Description for step 2
+                i.fas.fa-brain
+                h3 2. Object detection model finds and logs
                 p Our AI model detects objects in real-time and logs them for you.
             .step
-                //- Image for step 3
-                img(src="/images/step3.png", alt="Step 3")
-                //- Heading for step 3
+                i.fas.fa-search
                 h3 3. Search from your list of objects
-                //- Description for step 3
-                p Easily find and manage your detected objects in your personal list.
+                p Easily find and filter your personal detected objects.
 
     section.features
-        //- Section heading for key features
         h2 Key Features
         .feature-grid
             .feature
-                //- Icon for advanced object detection
                 i.fas.fa-search
-                //- Heading for advanced object detection
                 h3 Advanced Object Detection
-                //- Description for advanced object detection
                 p Detect multiple objects in images or video streams with high accuracy.
             .feature
-                //- Icon for efficient logging
                 i.fas.fa-database
-                //- Heading for efficient logging
                 h3 Efficient Logging
-                //- Description for efficient logging
                 p Automatically save and organize detected objects for easy retrieval.
             .feature
-                //- Icon for mobile friendly
                 i.fas.fa-mobile-alt
-                //- Heading for mobile friendly
                 h3 Mobile Friendly
-                //- Description for mobile friendly
                 p Use FindNLog on any device, anywhere, anytime.
             .feature
-                //- Icon for real-time analytics
                 i.fas.fa-chart-line
-                //- Heading for real-time analytics
                 h3 Real-time Analytics
-                //- Description for real-time analytics
                 p Get insights on your detected objects with our built-in analytics.

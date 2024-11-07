@@ -1,5 +1,3 @@
-// public/javascripts/detect.js
-
 const video = document.getElementById('video');
 const startButton = document.getElementById('start');
 const stopButton = document.getElementById('stop');
@@ -20,7 +18,7 @@ async function setupCamera() {
 }
 
 async function loadModel() {
-    model = await cocoSsd.load();
+    model = await cocoSsd.load({ base: 'mobilenet_v2' });
 }
 
 async function detectFrame() {

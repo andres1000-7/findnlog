@@ -1,0 +1,35 @@
+extends layout
+// create CSS classes for the analytics section
+block content
+    section.analytics-section
+        h1 Detection Analytics Dashboard
+        .stats
+            h2 Detection Statistics
+            table
+                thead
+                    tr
+                        th Item Name
+                        th Detection Count
+                        th Last Detected
+                tbody
+                    each stat in stats
+                        tr
+                            td= stat.itemName
+                            td= stat.detectionCount
+                            td= stat.lastDetected
+        .sessions
+            h2 Detection Sessions
+            table
+                thead
+                    tr
+                        th Session ID
+                        th Start Time
+                        th End Time
+                        th Total Detections
+                tbody
+                    each session in sessions
+                        tr
+                            td= session.sessionID
+                            td= session.startTime
+                            td= session.endTime
+                            td= session.totalDetections

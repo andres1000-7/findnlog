@@ -1,3 +1,6 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
 /* Global Styles */
 :root {
   --primary-color: #3498db;
@@ -5,16 +8,17 @@
   --background-color: #f4f4f4;
   --text-color: #333;
   --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --font-family: 'Roboto', sans-serif;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: var(--font-family);
 }
 
 body {
-  font-family: 'Arial', sans-serif;
   line-height: 1.6;
   color: var(--text-color);
   background-color: var(--background-color);
@@ -25,6 +29,9 @@ header {
   background-color: var(--primary-color);
   padding: 1rem;
   box-shadow: var(--box-shadow);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 nav {
@@ -72,6 +79,7 @@ nav ul li a:hover {
   padding: 4rem 2rem;
   background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   color: white;
+  animation: fadeIn 1s ease-in-out;
 }
 
 .hero-content {
@@ -114,6 +122,7 @@ nav ul li a:hover {
   padding: 2rem;
   border-radius: 8px;
   box-shadow: var(--box-shadow);
+  animation: slideIn 1s ease-in-out;
 }
 
 .auth-forms h2 {
@@ -131,20 +140,25 @@ nav ul li a:hover {
   padding: 0.5rem;
   border: 1px solid #ddd;
   border-radius: 4px;
+  transition: border-color 0.3s ease;
+}
+
+.auth-forms input:focus {
+  border-color: var(--primary-color);
 }
 
 .auth-forms button {
-  background-color: var(--primary-color);
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   color: white;
   border: none;
   padding: 0.5rem;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background 0.3s ease;
 }
 
 .auth-forms button:hover {
-  background-color: var(--secondary-color);
+  background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
 }
 
 /* How to Use Section */
@@ -204,9 +218,20 @@ nav ul li a:hover {
   border-radius: 8px;
   box-shadow: var(--box-shadow);
   text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.feature:hover {
+  transform: translateY(-10px);
 }
 
 .feature i {
+  font-size: 3rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.step i {
   font-size: 3rem;
   color: var(--primary-color);
   margin-bottom: 1rem;
@@ -352,4 +377,158 @@ footer {
 .error {
   color: red;
   margin-bottom: 1rem;
+}
+
+.object-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.animation-container {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+#animation-message {
+    display: none;
+    padding: 1rem;
+    background-color: var(--secondary-color);
+    color: white;
+    border-radius: 4px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.filter-section {
+  padding: 2rem;
+  background-color: var(--background-color);
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
+  margin-bottom: 2rem;
+}
+
+.results-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.object-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.object-card:hover {
+  transform: translateY(-5px);
+}
+
+.object-card img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.object-card h3 {
+  margin-bottom: 0.5rem;
+}
+
+.object-card p {
+  color: var(--text-color);
+}
+
+/* Add styles for object list */
+.object-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.object-item {
+    /*make text color black*/
+    color: black;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--background-color);
+    padding: 0.5rem;
+    border-radius: 4px;
+    box-shadow: var(--box-shadow);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.object-item:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Add styles for modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+    position: relative;
+    margin: auto;
+    padding: 1rem;
+    width: 80%;
+    max-width: 800px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+}
+
+.modal-content img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
