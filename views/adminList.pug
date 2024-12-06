@@ -1,0 +1,30 @@
+extends layout
+
+block content
+    section.admin-list-section
+        h1 Admin List
+        if success
+            p.success= success
+        if error
+            p.error= error
+        form(action="/adminList/search", method="POST")
+            label(for="email") Search by Email:
+            input(type="email", name="email")
+            button(type="submit") Search
+        table
+            thead
+                tr
+                    th Email
+                    th First Name
+                    th Last Name
+                    th Actions
+            tbody
+                each user in users
+                    tr
+                        td= user.email
+                        td= user.firstName
+                        td= user.lastName
+                        td
+                            form(action="/adminList/delete", method="POST", style="display:inline")
+                                input(type="hidden", name="email", value=user.email)
+                                button(type="submit") Delete

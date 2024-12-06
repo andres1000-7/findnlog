@@ -9,8 +9,9 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const detectRouter = require('./routes/detect');
 const realTimeDetectRouter = require('./routes/realTimeDetect');
-const analyticsRouter = require('./routes/analytics');
 const viewObjectsRouter = require('./routes/viewObjects');
+const addUserRouter = require('./routes/addUser');
+const adminListRouter = require('./routes/adminList');
 const UserModel = require('./models/UserModel');
 
 const app = express();
@@ -47,8 +48,9 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/detect', detectRouter);
 app.use('/realTimeDetect', realTimeDetectRouter);
-app.use('/analytics', analyticsRouter);
 app.use('/viewObjects', viewObjectsRouter);
+app.use('/addUser', addUserRouter);
+app.use('/adminList', adminListRouter);
 
 app.use(function (req, res, next) {
     next(createError(404));

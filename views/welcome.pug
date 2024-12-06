@@ -7,4 +7,63 @@ block content
             p.error= error
         else
             p Hello, #{user.email}!
-            a(href="/logout") Logout
+            a.logout-button(href="/logout") Logout
+
+        .intro
+            h2 What is FindNLog?
+            p
+                | FindNLog is an advanced object detection and logging platform that leverages machine learning to detect and log objects in real-time.
+                | Our platform uses the COCO-SSD model to provide high accuracy and efficiency in object detection tasks.
+                | Whether you are a developer, researcher, or hobbyist, FindNLog offers a powerful toolset to help you integrate object detection into your projects.
+
+        .machine-learning
+            h2 What is Machine Learning?
+            p
+                | Machine learning is a subset of artificial intelligence (AI) that focuses on building systems that can learn from and make decisions based on data.
+                | Instead of being explicitly programmed to perform a task, machine learning models are trained on large datasets to recognize patterns and make predictions.
+                | This approach allows for the development of highly adaptable and accurate systems that can improve over time as they are exposed to more data.
+
+            p
+                | In the context of object detection, machine learning models are trained to identify and locate objects within images or video streams.
+                | These models use complex algorithms and neural networks to analyze visual data and make predictions about the presence and location of various objects.
+
+        .coco-ssd
+            h2 What is the COCO-SSD Model?
+            p
+                | The COCO-SSD (Single Shot MultiBox Detector) model is a pre-trained object detection model that can identify and locate objects in images and video streams.
+                | It is trained on the COCO (Common Objects in Context) dataset, which contains over 80 different object categories, including everyday items like people, cars, and animals.
+
+            p
+                | The SSD architecture allows the model to make predictions in a single pass through the network, making it highly efficient and suitable for real-time applications.
+                | The model generates bounding boxes around detected objects and assigns a confidence score to each prediction, indicating the likelihood that the object is correctly identified.
+
+            img(src="/images/coco-ssd-example.png", alt="COCO-SSD Example")
+
+        .how-it-works
+            h2 How Does Object Detection Work?
+            p
+                | Object detection involves identifying and locating objects within an image or video stream.
+                | The COCO-SSD model uses a single deep neural network to predict the bounding boxes and class probabilities for each object in the image.
+                | This process involves several steps, including feature extraction, bounding box regression, and non-maximum suppression to filter out overlapping boxes.
+
+            p
+                | Feature extraction is the process of identifying important visual features within an image, such as edges, textures, and shapes.
+                | The neural network uses these features to make predictions about the presence and location of objects.
+                | Bounding box regression involves refining the coordinates of the predicted boxes to more accurately match the objects' locations.
+                | Non-maximum suppression is used to eliminate redundant boxes and keep only the most confident predictions.
+
+            img(src="/images/object-detection-process.png", alt="Object Detection Process")
+
+        .detect-page
+            h2 Using the Detect Page
+            p
+                | On the /detect page, you can select objects from a predefined list and start the detection process.
+                | The model will analyze the video stream from your webcam and highlight the detected objects in real-time.
+                | This feature allows you to quickly and easily test the capabilities of the COCO-SSD model and see it in action.
+
+        .real-time-detect-page
+            h2 Using the Real-Time Detect Page
+            p
+                | The /realTimeDetect page allows you to perform real-time object detection with additional logging capabilities.
+                | You can start a detection session, and the detected objects will be logged for further analysis.
+                | This feature is particularly useful for applications that require continuous monitoring and logging of detected objects, such as security systems or data collection for research purposes.

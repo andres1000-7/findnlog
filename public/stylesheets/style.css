@@ -368,10 +368,48 @@ footer {
 }
 
 /* Add these to your existing style.css file */
+.logout-button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: var(--primary-color);
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+}
+
+.logout-button:hover {
+  background-color: var(--secondary-color);
+}
 
 .welcome-section {
-  padding: 2rem;
+  padding: 4rem 2rem;
   background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.welcome-section h1, .welcome-section h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.welcome-section p {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+}
+
+.welcome-section img {
+  display: block;
+  margin: 0 auto 2rem;
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
+}
+
+.intro, .coco-ssd, .how-it-works, .detect-page, .real-time-detect-page {
+  margin-bottom: 4rem;
 }
 
 .error {
@@ -510,6 +548,132 @@ footer {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+/* Add User Section */
+.add-user-section {
+    padding: 2rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    max-width: 600px;
+    margin: 2rem auto;
+}
+
+.add-user-section h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.add-user-section form {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-user-section label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.add-user-section input {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.add-user-section button {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.add-user-section button:hover {
+    background: var(--secondary-color);
+}
+
+/* Admin List Section */
+.admin-list-section {
+    padding: 2rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    max-width: 800px;
+    margin: 2rem auto;
+}
+
+.admin-list-section h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.admin-list-section form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.admin-list-section label {
+    margin-right: 0.5rem;
+    font-weight: bold;
+}
+
+.admin-list-section input {
+    margin-right: 0.5rem;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.admin-list-section button {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.admin-list-section button:hover {
+    background: var(--secondary-color);
+}
+
+.admin-list-section table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.admin-list-section th, .admin-list-section td {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.admin-list-section th {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.admin-list-section td form {
+    display: inline;
+}
+
+.success {
+    color: green;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.error {
+    color: red;
+    text-align: center;
+    margin-bottom: 1rem;
 }
 
 /* Animations */

@@ -1,0 +1,19 @@
+extends layout
+
+block content
+    section.add-user-section
+        h1 Add User
+        if success
+            p.success= success
+        if error
+            p.error= error
+        form(action="/addUser", method="POST")
+            label(for="email") Email:
+            input(type="email", name="email", required)
+            label(for="password") Password:
+            input(type="password", name="password", required)
+            label(for="firstName") First Name:
+            input(type="text", name="firstName", required)
+            label(for="lastName") Last Name:
+            input(type="text", name="lastName", required)
+            button(type="submit") Add User
